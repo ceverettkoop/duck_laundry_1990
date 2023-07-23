@@ -1,25 +1,25 @@
 #ifndef HOUSEHOLD_H
 #define HOUSEHOLD_H
 
-enum SocialClass{
-    UNEMPLOYED,
-    MIN_WAGE,
-    PROFESSIONAL,
-    RICH
+//defined as pct of natl med income
+enum SocialClass: int{
+    UNEMPLOYED = 30,
+    MIN_WAGE = 90,
+    PROFESSIONAL = 200,
+    RICH = 300
 };
 
-class Household{
-private:
+struct Household{
     bool has_car;
     float income;
+    int wealth;
     int rent;
     bool has_laundry;
     SocialClass job;
     bool walking_distance;
-    
 
-public:
-    Household(/* args */);
+    Household(bool has_car, float income, int rent, bool has_laundry,
+        SocialClass job, bool walking_distance);
     ~Household();
 };
 
