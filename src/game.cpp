@@ -3,7 +3,7 @@
 void Game::advance_turn() {
 
     //update national economy
-    economy.process_turn();
+    economy.process_turn(cur_turn);
     //process changes to local economy
     hood.process_turn(economy, mat);
     //process business conducted in new environment
@@ -19,17 +19,22 @@ Game::Game(std::string label) {
 
 //main loop will call repeatedly until this returns 1
 //
-int Game::game_loop(PlayerActions actions) {
+LoopResult Game::game_loop(PlayerActions actions) {
 
-    //all other updates to process
+    if(cur_turn > NUM_TURNS){
+        return GAME_OVER;
+    }
 
-    if(actions.end_turn)
+    if(actions.end_turn){
         advance_turn();
+        cur_turn++;
+        return NEW_TURN;
+    }
+    if(actions.quit_game){
+        return QUIT_GAME;
+    }
 
-    if(actions.quit_game)
-        return 1;
-
-    return 0;
+    return NOTHING;
 }
 
 Player& Game::get_player() {

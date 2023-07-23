@@ -4,8 +4,8 @@
 //defined as pct of natl med income
 enum SocialClass: int{
     UNEMPLOYED = 30,
-    MIN_WAGE = 90,
-    PROFESSIONAL = 200,
+    MIN_WAGE = 70,
+    PROFESSIONAL = 150,
     RICH = 300
 };
 

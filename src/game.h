@@ -8,8 +8,16 @@
 #include "player.h"
 #include "playeractions.h"
 
+enum LoopResult{
+    NOTHING,
+    NEW_TURN,
+    GAME_OVER,
+    QUIT_GAME
+};
+
 class Game{
 private:
+    int cur_turn = 0;
     std::string label;
     Neighborhood hood;
     Player player;
@@ -23,7 +31,7 @@ public:
     Game(std::string label);
     ~Game();
 
-    int game_loop(PlayerActions actions); //should be called until it returns 1
+    LoopResult game_loop(PlayerActions actions); //should be called until it returns 1
     Player& get_player();
 };
 
