@@ -2,6 +2,7 @@
 #define CONSTANTS_H
 
 #define NUM_TURNS 84
+#define STARTING_MONEY 500000;
 
 const float FED_RATES[NUM_TURNS] = {
     8.25, 8.243333333, 8.16, 7.743333333, // 1990

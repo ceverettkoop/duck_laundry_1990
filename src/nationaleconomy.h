@@ -14,6 +14,7 @@ private:
 public:
     NationalEconomy(/* args */);
     ~NationalEconomy();
+    void process_turn();
 };
 
 

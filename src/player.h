@@ -3,23 +3,16 @@
 
 #include <string>
 #include "laundromat.h"
+#include "constants.h"
 
-class Player
-{
-private:
-    /* data */
-public:
-    Player(/* args */);
+struct Player{
+
+    std::string name = "DEFAULT DUCK";
+    int money = STARTING_MONEY;
+
+    Player();
+    Player::Player(std::string in_name, int in_money);
     ~Player();
 };
-
-Player::Player(/* args */)
-{
-}
-
-Player::~Player()
-{
-}
-
 
 #endif /* PLAYER_H */

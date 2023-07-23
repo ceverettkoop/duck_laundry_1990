@@ -4,6 +4,8 @@
 #include <vector>
 #include "household.h"
 #include "nationaleconomy.h"
+#include "laundromat.h"
+#include "businessday.h"
 
 class Neighborhood{
 private:
@@ -27,7 +29,8 @@ private:
 public:
     Neighborhood();
     ~Neighborhood();
-    void process_turn(const NationalEconomy& nation);
+    void process_turn(const NationalEconomy& nation, const Laundromat& laundromat);
+    BusinessDay process_business(const Laundromat& laundromat);
     void get_stats();
 };
 
