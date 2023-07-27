@@ -4,6 +4,8 @@
 #define NUM_TURNS 84
 #define STARTING_MONEY 500000;
 
+extern unsigned rand_seed;
+
 static const float FED_RATES[NUM_TURNS] = {
     8.25, 8.243333333, 8.16, 7.743333333, // 1990
     6.426666667, 5.863333333, 5.643333333, 4.816666667, // 1991

@@ -15,6 +15,8 @@ void Game::advance_turn() {
 
 Game::Game(std::string label) {
     label = label;
+    hood.init();
+
 }
 
 //main loop will call repeatedly until this returns 1

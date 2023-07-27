@@ -18,9 +18,10 @@ struct Household{
     SocialClass job;
     bool walking_distance;
 
-    Household(bool in_has_car, float in_income, int in_rent, bool in_has_laundry,
-        SocialClass in_job, bool in_walking_distance);
+
+    Household(SocialClass soc_class, int local_med_wage);
     ~Household();
+
 };
 
 

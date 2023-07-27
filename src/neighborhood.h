@@ -29,6 +29,7 @@ private:
 public:
     Neighborhood();
     ~Neighborhood();
+    void init(); //called only at game start
     void process_turn(const NationalEconomy& nation, const Laundromat& laundromat);
     BusinessDay process_business(const Laundromat& laundromat);
     void get_stats();
