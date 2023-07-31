@@ -1,6 +1,7 @@
 #include "neighborhood.h"
 #include <random>
 #include <iostream>
+#include <ctime>
 
 static inline SocialClass find_nearest_class(const int pct){
     SocialClass ret = UNEMPLOYED;
@@ -23,17 +24,23 @@ static inline SocialClass find_nearest_class(const int pct){
 //set initial state of neighborhood at start of game
 void Neighborhood::init() {
 
-    //create 100 households
-    //60 set to MIN_WAGE
-    //random assignment of other 40 with normal distribution around 100
+    const int total_households = 100;
+    const int min_wage_hhs = 60;
     const int init_med_wage = 29943;
     std::default_random_engine generator;
     std::normal_distribution<int> distribution(100, 3);
     std::vector<SocialClass> household_classes;
-    for (int i = 0; i < 60; i++){
+
+    generator.seed(std::time(0));
+
+    //seed rents
+
+
+    //seed households
+    for (int i = 0; i < min_wage_hhs; i++){
         household_classes.push_back(MIN_WAGE);
     }
-    for (int i = 0; i = 40; i++){
+    for (int i = 0; i < (total_households - min_wage_hhs); i++){
         household_classes.push_back(
             find_nearest_class(distribution(generator)));
     }
@@ -41,5 +48,13 @@ void Neighborhood::init() {
         households.push_back(Household(soc_class, init_med_wage));
     }
     
+
+}
+
+Dwelling::Dwelling(int local_med_rent, SocialClass soc_class) {
+    static int next_index = 0;
+    index = next_index;
+    next_index++;
+
 
 }

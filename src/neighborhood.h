@@ -7,10 +7,26 @@
 #include "laundromat.h"
 #include "businessday.h"
 
+//represents something a household can occupy if it can make rent;
+class Dwelling{
+
+public:
+    int index;
+    int rent;
+    bool occupied;
+
+    Dwelling(int local_med_rent, SocialClass soc_class);
+
+private:
+    static int next_index;
+
+};
+
 class Neighborhood{
 private:
     float local_min_wage;
     std::vector<Household> households;
+    std::vector<Dwelling> dwellings;
     struct Statistics{ //calculated based on households and stored here for reporting
         int walk_homes;
         int drive_homes;

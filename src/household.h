@@ -16,7 +16,7 @@ struct Household{
     int rent;
     bool has_laundry;
     SocialClass job;
-    bool walking_distance;
+    int dwelling_index; //-1 for homeless
 
 
     Household(SocialClass soc_class, int local_med_wage);
